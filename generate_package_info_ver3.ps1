@@ -13,7 +13,7 @@ $package_root = Join-Path -Path $project_root -ChildPath "src\main\java"
 # 패키지 폴더 배열 생성
 $package_folders = Get-ChildItem -Directory -Recurse -Path $package_root | Select-Object -ExpandProperty FullName
 
-# 각 폴더에 대해 package-info.java 파일 생성
+# java 패키지 폴더들에 대해 package-info.java 파일 생성
 $package_folders | ForEach-Object {
     $package_path = $_.Substring($package_root.Length + 1).Replace('\', '.')
     $package_info_file = Join-Path -Path $_ -ChildPath "package-info.java"
